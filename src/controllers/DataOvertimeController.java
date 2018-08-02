@@ -39,15 +39,16 @@ public class DataOvertimeController {
         Karyawan karyawan = (Karyawan) this.dodao.getById(Integer.parseInt(karyawanId));
         Level level = (Level) this.dodao.getById(Integer.parseInt(levelId));
         Status status = (Status) this.dodao.getById(Integer.parseInt(statusId));
-        return this.dodao.insert(Integer.parseInt(dataId),karyawan,java.sql.Date.valueOf(tgl),jamMasuk,jamPulang,level,status);
+        return this.dodao.insert(new DataOvertime(Integer.parseInt(dataId),karyawan,java.sql.Date.valueOf(tgl),jamMasuk,jamPulang,level,status));
                 
     }
-//    
-//    public boolean edit(String dataId,String karyawanId,String tgl,String jamMasuk,String jamPulang,String levelId,String statusId){
-//        Karyawan karyawan = (Karyawan) this.dodao.getById(Integer.parseInt(karyawanId));
-//        Level level = (Level) this.dodao.getById(Integer.parseInt(levelId));
-//        return this.dodao.update(Integer.parseInt(dataId), karyawan,java.sql.Date.valueOf(tgl),,,levelId,new Status(statusId, ''));
-//    }
+    
+    public boolean edit(String dataId,String karyawanId,String tgl,String jamMasuk,String jamPulang,String levelId,String statusId){
+        Karyawan karyawan = (Karyawan) this.dodao.getById(Integer.parseInt(karyawanId));
+        Level level = (Level) this.dodao.getById(Integer.parseInt(levelId));
+        Status status = (Status) this.dodao.getById(Integer.parseInt(statusId));
+        return this.dodao.update(new DataOvertime(Integer.parseInt(dataId),karyawan,java.sql.Date.valueOf(tgl),jamMasuk,jamPulang,level,status));
+    }
     
     public boolean drop(int id){
         return this.dodao.delete(id);

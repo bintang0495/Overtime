@@ -58,20 +58,20 @@ public class DataOvertimeController {
         Karyawan karyawan = (Karyawan) this.dodao.getById(Integer.parseInt(karyawanId));
         Level level = (Level) this.dodao.getById(Integer.parseInt(levelId));
         Status status = (Status) this.dodao.getById(Integer.parseInt(statusId));
-        char[] temp_jpulang = jamPulang.toCharArray();
-        int jam_plg = Integer.parseInt(temp_jpulang[0]+""+temp_jpulang[1]);
-        int param = 17;
-        double upah=0;
-        if(jam_plg-param == 1){
-            upah = (karyawan.getGaji()*1/173)*1.5;
-        }else if(jam_plg-param == 2){
-            upah = (karyawan.getGaji()*1/173)*1.5+(karyawan.getGaji()*1/173)*2;
-        }else if(jam_plg-param >= 3){
-            upah = (karyawan.getGaji()*1/173)*1.5+(karyawan.getGaji()*1/173)*2+(karyawan.getGaji()*1/173)*2;
-        }
+//        char[] temp_jpulang = jamPulang.toCharArray();
+//        int jam_plg = Integer.parseInt(temp_jpulang[0]+""+temp_jpulang[1]);
+//        int param = 17;
+//        double upah=0;
+//        if(jam_plg-param == 1){
+//            upah = (karyawan.getGaji()*1/173)*1.5;
+//        }else if(jam_plg-param == 2){
+//            upah = (karyawan.getGaji()*1/173)*1.5+(karyawan.getGaji()*1/173)*2;
+//        }else if(jam_plg-param >= 3){
+//            upah = (karyawan.getGaji()*1/173)*1.5+(karyawan.getGaji()*1/173)*2+(karyawan.getGaji()*1/173)*2;
+//        }
+//        
         
-        
-        return this.dodao.insert(new DataOvertime(Integer.parseInt(dataId),karyawan,tgl,jamMasuk,jamPulang,level,status,(int)upah,keterangan));
+        return this.dodao.insert(new DataOvertime(Integer.parseInt(dataId),karyawan,tgl,jamMasuk,jamPulang,level,status,Integer.parseInt(upahLembur),keterangan));
                 
     }
     

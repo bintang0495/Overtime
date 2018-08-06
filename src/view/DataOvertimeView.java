@@ -269,7 +269,10 @@ public class DataOvertimeView extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_tblDataMouseClicked
 
     private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
-        this.saveOrEdit(txtIdData.isEnabled());
+        boolean flag = true;
+        flag = this.dataOvertimeController.save(txtIdData.getText(), txtIdKaryawan.getText(),txtTanggalLembur.getText(),
+                    txtJamBrgkt.getText(),txtJamPlg.getText(),this.getLevelId(),this.getStatusId(),txtUpah.getText(),txtKeterangan.getText());
+        this.viewProccess.saveData(this, flag, txtIdData.isEnabled());
         this.bindingTable();
     }//GEN-LAST:event_btnSaveActionPerformed
 
@@ -311,17 +314,7 @@ public class DataOvertimeView extends javax.swing.JInternalFrame {
                 this.dataOvertimeController.bindingSort(categories[0], "asc"));
     }
     
-    public void saveOrEdit(boolean isSave) {
-        boolean flag = true;
-        if (isSave) {
-            flag = this.dataOvertimeController.save(txtIdData.getText(), txtIdKaryawan.getText(),txtTanggalLembur.getText(),
-                    txtJamBrgkt.getText(),txtJamPlg.getText(),this.getLevelId(),this.getStatusId(),txtUpah.getText(),txtKeterangan.getText());
-        } else {
-            flag = this.dataOvertimeController.edit(txtIdData.getText(), txtIdKaryawan.getText(),txtTanggalLembur.getText());
-        }
-        this.viewProccess.saveData(this, flag, isSave);
-        this.reset();
-    }
+    
     
     public void reset() {        
         txtIdData.setEditable(false);

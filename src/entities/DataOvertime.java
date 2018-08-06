@@ -15,7 +15,6 @@ public class DataOvertime {
     private int dataId;
     private Karyawan karyawanId;
     private String tgl;
-    private String jamMasuk;
     private String jamPulang;
     private Level levelId;
     private Status statusId;
@@ -36,22 +35,16 @@ public class DataOvertime {
      * @param upahLembur
      * @param keterangan 
      */
-    public DataOvertime(int dataId, Karyawan karyawanId, String tgl, String jamMasuk, String jamPulang, Level levelId, Status statusId, int upahLembur,String keterangan) {
+    public DataOvertime(int dataId, Karyawan karyawanId, String tgl, String jamPulang, Level levelId, Status statusId, int upahLembur,String keterangan) {
         this.dataId = dataId;
         this.karyawanId = karyawanId;
         this.tgl = tgl;
-        this.jamMasuk = jamMasuk;
         this.jamPulang = jamPulang;
         this.levelId = levelId;
         this.statusId = statusId;
         this.upahLembur = upahLembur;
         this.keterangan = keterangan;
     }
-
-    
-
-    
-    
     
     /**
      * @return the dataId
@@ -98,16 +91,11 @@ public class DataOvertime {
     /**
      * @return the jamMasuk
      */
-    public String getJamMasuk() {
-        return jamMasuk;
-    }
 
     /**
      * @param jamMasuk the jamMasuk to set
      */
-    public void setJamMasuk(String jamMasuk) {
-        this.jamMasuk = jamMasuk;
-    }
+
 
     /**
      * @return the jamPulang

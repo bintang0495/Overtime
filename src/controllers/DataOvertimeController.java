@@ -54,7 +54,7 @@ public class DataOvertimeController {
      * @param keterangan
      * @return 
      */
-    public boolean save(String dataId,String karyawanId,String tgl,String jamMasuk,String jamPulang,String levelId,String statusId,String upahLembur,String keterangan){
+    public boolean save(String dataId,String karyawanId,String tgl,String jamPulang,String levelId,String statusId,String upahLembur,String keterangan){
         Karyawan karyawan = (Karyawan) this.dodao.getById(Integer.parseInt(karyawanId));
         Level level = (Level) this.dodao.getById(Integer.parseInt(levelId));
         Status status = (Status) this.dodao.getById(Integer.parseInt(statusId));
@@ -71,15 +71,15 @@ public class DataOvertimeController {
 //        }
 //        
         
-        return this.dodao.insert(new DataOvertime(Integer.parseInt(dataId),karyawan,tgl,jamMasuk,jamPulang,level,status,Integer.parseInt(upahLembur),keterangan));
+        return this.dodao.insert(new DataOvertime(Integer.parseInt(dataId),karyawan,tgl,jamPulang,level,status,Integer.parseInt(upahLembur),keterangan));
                 
     }
     
-    public boolean edit(String dataId,String karyawanId,String tgl,String jamMasuk,String jamPulang,String levelId,String statusId,String upahLembur,String keterangan){
+    public boolean edit(String dataId,String karyawanId,String tgl,String jamPulang,String levelId,String statusId,String upahLembur,String keterangan){
         Karyawan karyawan = (Karyawan) this.dodao.getById(Integer.parseInt(karyawanId));
         Level level = (Level) this.dodao.getById(Integer.parseInt(levelId));
         Status status = (Status) this.dodao.getById(Integer.parseInt(statusId));
-        return this.dodao.update(new DataOvertime(Integer.parseInt(dataId),karyawan,tgl,jamMasuk,jamPulang,level,status,Integer.parseInt(upahLembur),keterangan));
+        return this.dodao.update(new DataOvertime(Integer.parseInt(dataId),karyawan,tgl,jamPulang,level,status,Integer.parseInt(upahLembur),keterangan));
     }
     
     public boolean drop(int id){

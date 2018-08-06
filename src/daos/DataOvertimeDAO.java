@@ -51,9 +51,6 @@ public class DataOvertimeDAO {
                 + dataOvertime.getDataId()+ "," 
                 + dataOvertime.getKaryawanId().getKaryawanId()+ ",to_date('"                 
                 + dataOvertime.getTgl()+ "','mm/dd/yyyy'),"
-                +"to_date('"
-                + dataOvertime.getJamMasuk()
-                +"','HH24:MI'),"
                 +"to_date('" 
                 + dataOvertime.getJamPulang()
                 + "','HH24:MI')," 
@@ -65,8 +62,7 @@ public class DataOvertimeDAO {
     public boolean update(DataOvertime dataOvertime) {
         return this.fdao.executeDML("UPDATE data_overtime SET id_karyawan="
                 + dataOvertime.getKaryawanId()+ ",tgl=to_date('" 
-                + dataOvertime.getTgl()+ "','mm/dd/yyyy'),jam_masuk= to_date('"+ dataOvertime.getJamMasuk() 
-                +"','HH24:MI'),jam_keluar= to_date('" + dataOvertime.getJamPulang()+ "','HH24:MI'),id_level=" + dataOvertime.getLevelId().getLevelId()
+                + dataOvertime.getTgl()+ "','mm/dd/yyyy'),jam_keluar= to_date('" + dataOvertime.getJamPulang()+ "','HH24:MI'),id_level=" + dataOvertime.getLevelId().getLevelId()
                 + ",id_status = '"+ dataOvertime.getStatusId().getStatusId()+"',upah_lembur="+dataOvertime.getUpahLembur()+
                 ",keterangan='"+dataOvertime.getKeterangan()+"' WHERE id="+dataOvertime.getDataId());
     }
@@ -76,7 +72,7 @@ public class DataOvertimeDAO {
     }
     
     public List<Object[]> getAll() {
-        return this.fdao.getAll("SELECT d.id,k.nama,to_char(d.tgl,'mm/dd/yyyy'),to_char(d.jam_masuk,'HH24:MI'),to_char(d.jam_pulang,'HH24:MI'),d.id_level,s.status,upah_lembur,keterangan FROM data_overtime d JOIN Karyawan k ON \n" +
+        return this.fdao.getAll("SELECT d.id,k.nama,to_char(d.tgl,'mm/dd/yyyy'),to_char(d.jam_pulang,'HH24:MI'),d.id_level,s.status,upah_lembur,keterangan FROM data_overtime d JOIN Karyawan k ON \n" +
 "d.id_karyawan = k.id JOIN Status_overtime s ON d.id_status=s.id");
     }
     
@@ -87,7 +83,7 @@ public class DataOvertimeDAO {
      * @return nilai atribut yang berurutan berdasarkan parameter kategori
      */
     public List<Object[]> getAllSort(String category, String sort) {
-        return this.fdao.getAll("SELECT d.id,k.nama,to_char(d.tgl,'mm/dd/yyyy'),to_char(d.jam_masuk,'HH24:MI'),to_char(d.jam_pulang,'HH24:MI'),d.id_level,s.status,upah_lembur,keterangan FROM data_overtime d JOIN Karyawan k ON \n" +
+        return this.fdao.getAll("SELECT d.id,k.nama,to_char(d.tgl,'mm/dd/yyyy'),to_char(d.jam_pulang,'HH24:MI'),d.id_level,s.status,upah_lembur,keterangan FROM data_overtime d JOIN Karyawan k ON \n" +
 "d.id_karyawan = k.id JOIN Status_overtime s ON d.id_status=s.id ORDER BY " + category + " " + sort);
     }
 
@@ -98,7 +94,7 @@ public class DataOvertimeDAO {
      * @return nilai 
      */
     public List<Object[]> search(String category, String data) {
-        return this.fdao.getAll("SELECT d.id,k.nama,tgl,to_char(d.jam_masuk,'HH24:MI'),to_char(d.jam_pulang,'HH24:MI'),d.id_level,s.status,upah_lembur,keterangan FROM data_overtime d JOIN Karyawan k ON \n" +
+        return this.fdao.getAll("SELECT d.id,k.nama,tgl,to_char(d.jam_pulang,'HH24:MI'),d.id_level,s.status,upah_lembur,keterangan FROM data_overtime d JOIN Karyawan k ON \n" +
 "d.id_karyawan = k.id JOIN Status_overtime s ON d.id_status=s.id WHERE " + category + " LIKE '%" + data + "%'");
     }
 
@@ -108,7 +104,7 @@ public class DataOvertimeDAO {
      * @return nilai atribut id
      */
     public Object getById(int dataId) {
-        return this.fdao.getAll("SELECT d.id,k.nama,tgl,to_char(d.jam_masuk,'HH24:MI'),to_char(d.jam_pulang,'HH24:MI'),d.id_level,s.status,upah_lembur,keterangan FROM data_overtime d JOIN Karyawan k ON \n" +
+        return this.fdao.getAll("SELECT d.id,k.nama,tgl,to_char(d.jam_pulang,'HH24:MI'),d.id_level,s.status,upah_lembur,keterangan FROM data_overtime d JOIN Karyawan k ON \n" +
 "d.id_karyawan = k.id JOIN Status_overtime s ON d.id_status=s.id WHERE id=" + dataId);
     }
 

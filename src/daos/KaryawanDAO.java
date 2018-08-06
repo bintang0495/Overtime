@@ -25,8 +25,8 @@ public class KaryawanDAO {
         return this.fdao.executeDML("INSERT INTO Karyawan VALUES("
                 + karyawan.getKaryawanId()
                 + "," + karyawan.getRoleId().getRoleId()+ ",'"+karyawan.getKaryawanName()
-                +"',to_date('"+ karyawan.getTglLahir()
-                +"','mm/dd/yyyy'),to_date('" + karyawan.getTglMasuk()+ "','mm/dd/yyyy'),'"+ karyawan.getAlamat()+"','"+karyawan.getGaji()+"')");
+                +"',to_date('"+ karyawan.getTglLahir()+"','mm/dd/yyyy'),"
+                + "to_date('" + karyawan.getTglMasuk()+ "','mm/dd/yyyy'),'"+ karyawan.getAlamat()+"','"+karyawan.getGaji()+"')");
     }
     public boolean update(Karyawan karyawan) {
          return this.fdao.executeDML("UPDATE Karyawan SET id_role=" + karyawan.getRoleId().getRoleId()+ ",nama='"+karyawan.getKaryawanName()

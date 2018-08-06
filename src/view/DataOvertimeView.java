@@ -63,12 +63,10 @@ public class DataOvertimeView extends javax.swing.JInternalFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         txtIdData = new javax.swing.JTextField();
         txtIdKaryawan = new javax.swing.JTextField();
         txtTanggalLembur = new javax.swing.JTextField();
-        txtJamBrgkt = new javax.swing.JTextField();
         txtJamPlg = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         cmbLevel = new javax.swing.JComboBox<>();
@@ -111,8 +109,6 @@ public class DataOvertimeView extends javax.swing.JInternalFrame {
 
         jLabel3.setText("Tanggal Lembur");
 
-        jLabel4.setText("Jam Berangkat");
-
         jLabel5.setText("Jam Pulang");
 
         jLabel6.setText("Level");
@@ -149,14 +145,12 @@ public class DataOvertimeView extends javax.swing.JInternalFrame {
                 .addGap(21, 21, 21)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel5)
-                    .addComponent(jLabel4)
                     .addComponent(jLabel3)
                     .addComponent(jLabel2)
                     .addComponent(jLabel1))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(txtJamPlg, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtJamBrgkt)
                     .addComponent(txtTanggalLembur, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtIdKaryawan, javax.swing.GroupLayout.DEFAULT_SIZE, 174, Short.MAX_VALUE)
                     .addComponent(txtIdData))
@@ -220,24 +214,20 @@ public class DataOvertimeView extends javax.swing.JInternalFrame {
                             .addComponent(txtTanggalLembur, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(18, 18, 18)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jLabel4)
-                                    .addComponent(txtJamBrgkt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(9, 9, 9)
-                                .addComponent(jLabel8)))
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(txtJamPlg, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addContainerGap(39, Short.MAX_VALUE))
+                                .addComponent(jLabel8))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(18, 18, 18)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(txtJamPlg, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addContainerGap())
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addComponent(btnDrop, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(42, 42, 42))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jScrollPane2))))
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 129, Short.MAX_VALUE))))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -271,7 +261,7 @@ public class DataOvertimeView extends javax.swing.JInternalFrame {
     private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
         boolean flag = true;
         flag = this.dataOvertimeController.save(txtIdData.getText(), txtIdKaryawan.getText(),txtTanggalLembur.getText(),
-                    txtJamBrgkt.getText(),txtJamPlg.getText(),this.getLevelId(),this.getStatusId(),txtUpah.getText(),txtKeterangan.getText());
+                    txtJamPlg.getText(),this.getLevelId(),this.getStatusId(),txtUpah.getText(),txtKeterangan.getText());
         this.viewProccess.saveData(this, flag, txtIdData.isEnabled());
         this.bindingTable();
     }//GEN-LAST:event_btnSaveActionPerformed
@@ -289,7 +279,6 @@ public class DataOvertimeView extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
@@ -302,7 +291,6 @@ public class DataOvertimeView extends javax.swing.JInternalFrame {
     private javax.swing.JTable tblData;
     private javax.swing.JTextField txtIdData;
     private javax.swing.JTextField txtIdKaryawan;
-    private javax.swing.JTextField txtJamBrgkt;
     private javax.swing.JTextField txtJamPlg;
     private javax.swing.JTextArea txtKeterangan;
     private javax.swing.JTextField txtTanggalLembur;
@@ -324,7 +312,6 @@ public class DataOvertimeView extends javax.swing.JInternalFrame {
         txtIdData.setText(this.dataOvertimeController.getAutoId());
         txtIdKaryawan.setText("");
         txtTanggalLembur.setText("");
-        txtJamBrgkt.setText("");
         txtJamPlg.setText("");
         txtKeterangan.setText("");
         this.bindingTable();
@@ -352,12 +339,11 @@ public class DataOvertimeView extends javax.swing.JInternalFrame {
         txtIdData.setText(tblData.getValueAt(row, 0).toString());
         txtIdKaryawan.setText(tblData.getValueAt(row, 1).toString());
         txtTanggalLembur.setText(tblData.getValueAt(row, 2).toString());
-        txtJamBrgkt.setText(tblData.getValueAt(row, 3).toString());
-        txtJamPlg.setText(tblData.getValueAt(row, 4).toString());
-        cmbLevel.setSelectedItem(tblData.getValueAt(row, 5).toString());
-        txtUpah.setText(tblData.getValueAt(row, 7).toString());
-        cmbStatus.setSelectedItem(tblData.getValueAt(row, 6).toString());
-        txtKeterangan.setText(tblData.getValueAt(row, 8).toString());
+        txtJamPlg.setText(tblData.getValueAt(row, 3).toString());
+        cmbLevel.setSelectedItem(tblData.getValueAt(row, 4).toString());
+        txtUpah.setText(tblData.getValueAt(row, 6).toString());
+        cmbStatus.setSelectedItem(tblData.getValueAt(row, 5).toString());
+        txtKeterangan.setText(tblData.getValueAt(row, 7).toString());
     }
     
     private List<Object[]> getDataLevel() {

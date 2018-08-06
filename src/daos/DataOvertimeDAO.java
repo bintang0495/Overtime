@@ -24,27 +24,27 @@ public class DataOvertimeDAO {
     }
     
     public boolean insert(DataOvertime dataOvertime) {
-        boolean flag = false;
-        double upah = 0;
-        double gaji_perhari;
-        int jam;
-        char[] temp_jpulang = dataOvertime.getJamPulang().toCharArray();
-        String jpulang = temp_jpulang[0]+""+temp_jpulang[1];
-        String parameter = "17:00"; //jam pulang kantor
-        char[] temp_param = parameter.toCharArray();
-        jam = Integer.parseInt(jpulang) - Integer.parseInt(temp_param[0]+""+temp_param[1]);
-        if(jam>=0){
-            
-                gaji_perhari = 1/173*dataOvertime.getKaryawanId().getGaji();
-                if(jam == 1){
-                    upah = gaji_perhari*1.5;
-                }else if(jam == 2){
-                    upah = gaji_perhari*1.5 +gaji_perhari*2;
-                }else if(jam >= 3){
-                    upah = gaji_perhari*1.5 +gaji_perhari*2+gaji_perhari*2;
-                }
-           
-        }
+//        boolean flag = false;
+//        double upah = 0;
+//        double gaji_perhari;
+//        int jam;
+//        char[] temp_jpulang = dataOvertime.getJamPulang().toCharArray();
+//        String jpulang = temp_jpulang[0]+""+temp_jpulang[1];
+//        String parameter = "17:00"; //jam pulang kantor
+//        char[] temp_param = parameter.toCharArray();
+//        jam = Integer.parseInt(jpulang) - Integer.parseInt(temp_param[0]+""+temp_param[1]);
+//        if(jam>=0){
+//            
+//                gaji_perhari = 1/173*dataOvertime.getKaryawanId().getGaji();
+//                if(jam == 1){
+//                    upah = gaji_perhari*1.5;
+//                }else if(jam == 2){
+//                    upah = gaji_perhari*1.5 +gaji_perhari*2;
+//                }else if(jam >= 3){
+//                    upah = gaji_perhari*1.5 +gaji_perhari*2+gaji_perhari*2;
+//                }
+//           
+//        }
         
         
         return this.fdao.executeDML("INSERT INTO data_overtime VALUES("
@@ -59,7 +59,7 @@ public class DataOvertimeDAO {
                 + "','HH24:MI')," 
                 + dataOvertime.getLevelId().getLevelId()
                 + ",'"
-                + dataOvertime.getStatusId().getStatusId()+"',"+upah+",'"+dataOvertime.getKeterangan()+"')");
+                + dataOvertime.getStatusId().getStatusId()+"',"+dataOvertime.getUpahLembur()+",'"+dataOvertime.getKeterangan()+"')");
     }
     
     public boolean update(DataOvertime dataOvertime) {
@@ -76,7 +76,7 @@ public class DataOvertimeDAO {
     }
     
     public List<Object[]> getAll() {
-        return this.fdao.getAll("SELECT d.id,k.nama,tgl,to_char(d.jam_masuk,'HH24:MI'),to_char(d.jam_pulang,'HH24:MI'),d.id_level,s.status,upah_lembur,keterangan FROM data_overtime d JOIN Karyawan k ON \n" +
+        return this.fdao.getAll("SELECT d.id,k.nama,to_char(d.tgl,'mm/dd/yyyy'),to_char(d.jam_masuk,'HH24:MI'),to_char(d.jam_pulang,'HH24:MI'),d.id_level,s.status,upah_lembur,keterangan FROM data_overtime d JOIN Karyawan k ON \n" +
 "d.id_karyawan = k.id JOIN Status_overtime s ON d.id_status=s.id");
     }
     
@@ -87,7 +87,7 @@ public class DataOvertimeDAO {
      * @return nilai atribut yang berurutan berdasarkan parameter kategori
      */
     public List<Object[]> getAllSort(String category, String sort) {
-        return this.fdao.getAll("SELECT d.id,k.nama,tgl,to_char(d.jam_masuk,'HH24:MI'),to_char(d.jam_pulang,'HH24:MI'),d.id_level,s.status,upah_lembur,keterangan FROM data_overtime d JOIN Karyawan k ON \n" +
+        return this.fdao.getAll("SELECT d.id,k.nama,to_char(d.tgl,'mm/dd/yyyy'),to_char(d.jam_masuk,'HH24:MI'),to_char(d.jam_pulang,'HH24:MI'),d.id_level,s.status,upah_lembur,keterangan FROM data_overtime d JOIN Karyawan k ON \n" +
 "d.id_karyawan = k.id JOIN Status_overtime s ON d.id_status=s.id ORDER BY " + category + " " + sort);
     }
 

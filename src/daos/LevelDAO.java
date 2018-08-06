@@ -20,10 +20,10 @@ public class LevelDAO {
     }
     
     public Object getById(int id) {
-        return this.fdao.getAll("SELECT * FROM Level WHERE id=" + id);
+        return this.fdao.getAll("SELECT id,to_char(waktu_lembur,'HH24:MI') FROM Level_overtime WHERE id=" + id);
     }
     
     public List<Object[]> getAllSort(String category, String sort) {
-        return this.fdao.getAll("SELECT * FROM Level ORDER BY "+category+" "+sort);
+        return this.fdao.getAll("SELECT id,to_char(waktu_lembur,'HH24:MI') FROM Level_overtime ORDER BY "+category+" "+sort);
     }
 }

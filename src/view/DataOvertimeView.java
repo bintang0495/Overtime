@@ -28,7 +28,7 @@ public class DataOvertimeView extends javax.swing.JInternalFrame {
     private final List<Object[]> StatusTemp;
     private final List<Object[]> LevelTemp;
     
-    /**
+    /** FUNGSI KONEKSI
      * Creates new form DataOvertimeView
      */
     public DataOvertimeView(Connection connection) {

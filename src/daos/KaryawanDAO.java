@@ -25,13 +25,13 @@ public class KaryawanDAO {
         return this.fdao.executeDML("INSERT INTO Karyawan VALUES("
                 + karyawan.getKaryawanId()
                 + "," + karyawan.getRoleId().getRoleId()+ ",'"+karyawan.getKaryawanName()
-                +"','"+ karyawan.getTglLahir()
-                +"'," + karyawan.getTglMasuk()+ "','"+ karyawan.getAlamat()+"','"+karyawan.getGaji()+"')");
+                +"',to_date('"+ karyawan.getTglLahir()
+                +"','mm/dd/yyyy'),to_date('" + karyawan.getTglMasuk()+ "','mm/dd/yyyy'),'"+ karyawan.getAlamat()+"','"+karyawan.getGaji()+"')");
     }
     public boolean update(Karyawan karyawan) {
          return this.fdao.executeDML("UPDATE Karyawan SET id_role=" + karyawan.getRoleId().getRoleId()+ ",nama='"+karyawan.getKaryawanName()
-                +"',tgl_lahir='"+ karyawan.getTglLahir()
-                +"',tgl_masuk='"+ karyawan.getTglMasuk()+ "',alamat='"+ karyawan.getAlamat()+"',gaji="+karyawan.getGaji()+" WHERE id ="+ karyawan.getKaryawanId());
+                +"',tgl_lahir=to_date('"+ karyawan.getTglLahir()
+                +"','mm/dd/yyyy'),tgl_masuk=to_date('" + karyawan.getTglMasuk()+ "','mm/dd/yyyy'),alamat='"+ karyawan.getAlamat()+"',gaji="+karyawan.getGaji()+" WHERE id ="+ karyawan.getKaryawanId());
     }
     
     public boolean delete(int dataId) {
@@ -39,7 +39,7 @@ public class KaryawanDAO {
     }
     
     public List<Object[]> getAll() {
-        return this.fdao.getAll("Select * FROM Karyawan");
+        return this.fdao.getAll("Select k.id,r.nama,k.nama,to_char(k.tgl_lahir,'mm/dd/yyyy'),to_char(k.tgl_masuk,'mm/dd/yyyy'),k.alamat,k.gaji FROM Karyawan k JOIN Role r ON k.id_role=r.id");
     }
     
     /**
@@ -49,7 +49,7 @@ public class KaryawanDAO {
      * @return nilai atribut yang berurutan berdasarkan parameter kategori
      */
     public List<Object[]> getAllSort(String category, String sort) {
-        return this.fdao.getAll("Select * FROM Karyawan ORDER BY " + category + " " + sort);
+        return this.fdao.getAll("SELECT k.id,r.nama,k.nama,to_char(k.tgl_lahir,'mm/dd/yyyy'),to_char(k.tgl_masuk,'mm/dd/yyyy'),k.alamat,k.gaji FROM Karyawan k JOIN Role r ON k.id_role=r.id ORDER BY k." + category + " " + sort);
     }
 
     /**
@@ -59,7 +59,7 @@ public class KaryawanDAO {
      * @return nilai 
      */
     public List<Object[]> search(String category, String data) {
-        return this.fdao.getAll("SELECT * FROM Karyawan WHERE " + category + " LIKE '%" + data + "%'");
+        return this.fdao.getAll("SELECT k.id,r.nama,k.nama,to_char(k.tgl_lahir,'mm/dd/yyyy'),to_char(k.tgl_masuk,'mm/dd/yyyy'),k.alamat,k.gaji FROM Karyawan k JOIN Role r ON k.id_role=r.id WHERE k." + category + " LIKE '%" + data + "%'");
     }
 
     /**
@@ -68,7 +68,7 @@ public class KaryawanDAO {
      * @return nilai atribut id
      */
     public Object getById(int dataId) {
-        return this.fdao.getAll("SELECT * FROM Karyawan WHERE id=" + dataId);
+        return this.fdao.getAll("SELECT k.id,r.nama,k.nama,to_char(k.tgl_lahir,'mm/dd/yyyy'),to_char(k.tgl_masuk,'mm/dd/yyyy'),k.alamat,k.gaji FROM Karyawan k JOIN Role r ON k.id_role=r.id FROM Karyawan WHERE id = k." + dataId);
     }
 
     /**

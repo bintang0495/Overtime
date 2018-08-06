@@ -16,15 +16,15 @@ public class Karyawan {
     private int karyawanId;
     private Role roleId;
     private String karyawanName;
-    private Date tglLahir;
-    private Date tglMasuk;
+    private String tglLahir;
+    private String tglMasuk;
     private String alamat;
     private int gaji;
 
     public Karyawan() {
     }
 
-    public Karyawan(int karyawanId, Role roleId, String karyawanName, Date tglLahir, Date tglMasuk, String alamat, int gaji) {
+    public Karyawan(int karyawanId, Role roleId, String karyawanName, String tglLahir, String tglMasuk, String alamat, int gaji) {
         this.karyawanId = karyawanId;
         this.roleId = roleId;
         this.karyawanName = karyawanName;
@@ -79,28 +79,28 @@ public class Karyawan {
     /**
      * @return the tglLahir
      */
-    public Date getTglLahir() {
+    public String getTglLahir() {
         return tglLahir;
     }
 
     /**
      * @param tglLahir the tglLahir to set
      */
-    public void setTglLahir(Date tglLahir) {
+    public void setTglLahir(String tglLahir) {
         this.tglLahir = tglLahir;
     }
 
     /**
      * @return the tglMasuk
      */
-    public Date getTglMasuk() {
+    public String getTglMasuk() {
         return tglMasuk;
     }
 
     /**
      * @param tglMasuk the tglMasuk to set
      */
-    public void setTglMasuk(Date tglMasuk) {
+    public void setTglMasuk(String tglMasuk) {
         this.tglMasuk = tglMasuk;
     }
 

@@ -12,18 +12,19 @@ import java.util.List;
  *
  * @author BINTANG
  */
-public class LevelDAO {
+public class RoleDAO {
     private FunctionDAO fdao;
 
-    public LevelDAO(Connection connection) {
+    public RoleDAO(Connection connection) {
         this.fdao = new FunctionDAO(connection);
     }
     
-    public Object getById(int id) {
-        return this.fdao.getAll("SELECT * FROM Level WHERE id=" + id);
+    public Object getById(int dataId) {
+        return this.fdao.getAll("SELECT * FROM Role WHERE id=" + dataId);
     }
     
     public List<Object[]> getAllSort(String category, String sort) {
-        return this.fdao.getAll("SELECT * FROM Level ORDER BY "+category+" "+sort);
+        return this.fdao.getAll("SELECT * FROM Role ORDER BY "+category+" "+sort);
     }
+    
 }

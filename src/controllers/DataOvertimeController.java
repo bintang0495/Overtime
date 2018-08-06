@@ -15,6 +15,9 @@ import entities.Level;
 import entities.Role;
 import entities.Status;
 import java.sql.Connection;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -35,19 +38,20 @@ public class DataOvertimeController {
     }
     
     
-    public boolean save(String dataId,String karyawanId,String tgl,String jamMasuk,String jamPulang,String levelId,String statusId){
+    public boolean save(String dataId,String karyawanId,String tgl,String jamMasuk,String jamPulang,String levelId,String statusId,String upahLembur,String keterangan){
         Karyawan karyawan = (Karyawan) this.dodao.getById(Integer.parseInt(karyawanId));
         Level level = (Level) this.dodao.getById(Integer.parseInt(levelId));
         Status status = (Status) this.dodao.getById(Integer.parseInt(statusId));
-        return this.dodao.insert(new DataOvertime(Integer.parseInt(dataId),karyawan,java.sql.Date.valueOf(tgl),jamMasuk,jamPulang,level,status));
+        
+        return this.dodao.insert(new DataOvertime(Integer.parseInt(dataId),karyawan,tgl,jamMasuk,jamPulang,level,status,Integer.parseInt(""),keterangan));
                 
     }
     
-    public boolean edit(String dataId,String karyawanId,String tgl,String jamMasuk,String jamPulang,String levelId,String statusId){
+    public boolean edit(String dataId,String karyawanId,String tgl,String jamMasuk,String jamPulang,String levelId,String statusId,String upahLembur,String keterangan){
         Karyawan karyawan = (Karyawan) this.dodao.getById(Integer.parseInt(karyawanId));
         Level level = (Level) this.dodao.getById(Integer.parseInt(levelId));
         Status status = (Status) this.dodao.getById(Integer.parseInt(statusId));
-        return this.dodao.update(new DataOvertime(Integer.parseInt(dataId),karyawan,java.sql.Date.valueOf(tgl),jamMasuk,jamPulang,level,status));
+        return this.dodao.update(new DataOvertime(Integer.parseInt(dataId),karyawan,tgl,jamMasuk,jamPulang,level,status,Integer.parseInt(""),keterangan));
     }
     
     public boolean drop(int id){

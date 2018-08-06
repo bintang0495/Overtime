@@ -5,7 +5,6 @@
  */
 package entities;
 
-import java.util.Date;
 
 /**
  *
@@ -13,16 +12,14 @@ import java.util.Date;
  */
 public class Level {
     private int levelId;
-    private Date waktuLembur;
-    private int upahLembur;
+    private String waktuLembur;
 
     public Level() {
     }
 
-    public Level(int levelId, Date waktuLembur, int upahLembur) {
+    public Level(int levelId, String waktuLembur) {
         this.levelId = levelId;
         this.waktuLembur = waktuLembur;
-        this.upahLembur = upahLembur;
     }
 
     /**
@@ -42,29 +39,15 @@ public class Level {
     /**
      * @return the waktuLembur
      */
-    public Date getWaktuLembur() {
+    public String getWaktuLembur() {
         return waktuLembur;
     }
 
     /**
      * @param waktuLembur the waktuLembur to set
      */
-    public void setWaktuLembur(Date waktuLembur) {
+    public void setWaktuLembur(String waktuLembur) {
         this.waktuLembur = waktuLembur;
-    }
-
-    /**
-     * @return the upahLembur
-     */
-    public int getUpahLembur() {
-        return upahLembur;
-    }
-
-    /**
-     * @param upahLembur the upahLembur to set
-     */
-    public void setUpahLembur(int upahLembur) {
-        this.upahLembur = upahLembur;
     }
     
 }

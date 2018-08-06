@@ -24,12 +24,12 @@ public class KaryawanController {
     
     public boolean save(String karyawanId,String roleId, String karyawanName,String tglLahir,String tglMasuk,String alamat,String gaji){
         return this.kdao.insert(new Karyawan(Integer.parseInt(karyawanId), new Role(Integer.parseInt(roleId), "")
-                , karyawanName, java.sql.Date.valueOf(tglLahir), java.sql.Date.valueOf(tglMasuk), alamat, Integer.parseInt(gaji)));
+                , karyawanName, tglLahir, tglMasuk, alamat, Integer.parseInt(gaji)));
     }
     
     public boolean edit(String karyawanId,String roleId, String karyawanName,String tglLahir,String tglMasuk,String alamat,String gaji){
         return this.kdao.update(new Karyawan(Integer.parseInt(karyawanId), new Role(Integer.parseInt(roleId), "")
-                , karyawanName, java.sql.Date.valueOf(tglLahir), java.sql.Date.valueOf(tglMasuk), alamat, Integer.parseInt(gaji)));
+                , karyawanName, tglLahir, tglMasuk, alamat, Integer.parseInt(gaji)));
     }
     
     public boolean drop(int id){

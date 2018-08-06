@@ -14,16 +14,18 @@ import java.sql.Date;
 public class DataOvertime {
     private int dataId;
     private Karyawan karyawanId;
-    private Date tgl;
+    private String tgl;
     private String jamMasuk;
     private String jamPulang;
     private Level levelId;
     private Status statusId;
+    private int upahLembur;
+    private String keterangan;
 
     public DataOvertime() {
     }
-
-    public DataOvertime(int dataId, Karyawan karyawanId, Date tgl, String jamMasuk, String jamPulang, Level levelId, Status statusId) {
+    
+    public DataOvertime(int dataId, Karyawan karyawanId, String tgl, String jamMasuk, String jamPulang, Level levelId, Status statusId, int upahLembur,String keterangan) {
         this.dataId = dataId;
         this.karyawanId = karyawanId;
         this.tgl = tgl;
@@ -31,7 +33,13 @@ public class DataOvertime {
         this.jamPulang = jamPulang;
         this.levelId = levelId;
         this.statusId = statusId;
+        this.upahLembur = upahLembur;
+        this.keterangan = keterangan;
     }
+
+    
+
+    
     
     
     /**
@@ -65,14 +73,14 @@ public class DataOvertime {
     /**
      * @return the tgl
      */
-    public Date getTgl() {
+    public String getTgl() {
         return tgl;
     }
 
     /**
      * @param tgl the tgl to set
      */
-    public void setTgl(Date tgl) {
+    public void setTgl(String tgl) {
         this.tgl = tgl;
     }
 
@@ -130,6 +138,34 @@ public class DataOvertime {
      */
     public void setStatusId(Status statusId) {
         this.statusId = statusId;
+    }
+
+    /**
+     * @return the upahLembur
+     */
+    public int getUpahLembur() {
+        return upahLembur;
+    }
+
+    /**
+     * @param upahLembur the upahLembur to set
+     */
+    public void setUpahLembur(int upahLembur) {
+        this.upahLembur = upahLembur;
+    }
+
+    /**
+     * @return the keterangan
+     */
+    public String getKeterangan() {
+        return keterangan;
+    }
+
+    /**
+     * @param keterangan the keterangan to set
+     */
+    public void setKeterangan(String keterangan) {
+        this.keterangan = keterangan;
     }
 
     

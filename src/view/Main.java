@@ -46,11 +46,11 @@ public class Main extends javax.swing.JFrame {
         dskMaster.setLayout(dskMasterLayout);
         dskMasterLayout.setHorizontalGroup(
             dskMasterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 830, Short.MAX_VALUE)
+            .addGap(0, 1130, Short.MAX_VALUE)
         );
         dskMasterLayout.setVerticalGroup(
             dskMasterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 372, Short.MAX_VALUE)
+            .addGap(0, 896, Short.MAX_VALUE)
         );
 
         jMenu1.setText("File");
@@ -75,11 +75,15 @@ public class Main extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(dskMaster)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(dskMaster, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(dskMaster)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(dskMaster, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();

@@ -6,6 +6,7 @@
 package daos;
 
 import java.sql.Connection;
+import java.util.List;
 
 /**
  *
@@ -21,4 +22,9 @@ public class StatusDAO {
     public Object getById(int dataId) {
         return this.fdao.getAll("SELECT * FROM Status_overtime WHERE id=" + dataId);
     }
+    
+    public List<Object[]> getAllSort(String category, String sort) {
+        return this.fdao.getAll("SELECT * FROM Status_overtime ORDER BY "+category+" "+sort);
+    }
+    
 }

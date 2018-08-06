@@ -24,7 +24,18 @@ public class DataOvertime {
 
     public DataOvertime() {
     }
-    
+    /**
+     * Konstruktor dataOvertime
+     * @param dataId
+     * @param karyawanId
+     * @param tgl
+     * @param jamMasuk
+     * @param jamPulang
+     * @param levelId
+     * @param statusId
+     * @param upahLembur
+     * @param keterangan 
+     */
     public DataOvertime(int dataId, Karyawan karyawanId, String tgl, String jamMasuk, String jamPulang, Level levelId, Status statusId, int upahLembur,String keterangan) {
         this.dataId = dataId;
         this.karyawanId = karyawanId;

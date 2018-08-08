@@ -19,10 +19,21 @@ public class LevelController {
         this.ldao = new LevelDAO(connection);
     }
     
+    /**
+     * 
+     * @param category
+     * @param sort
+     * @return 
+     */
     public List<Object[]> bindingSort(String category,String sort){
         return this.ldao.getAllSort(category, sort);
     }
     
+    /**
+     * 
+     * @param id
+     * @return 
+     */
     public Object findById(String id){
         return this.ldao.getById(Integer.parseInt(id));
     }

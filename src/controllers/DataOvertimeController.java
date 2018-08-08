@@ -54,54 +54,83 @@ public class DataOvertimeController {
      * @param keterangan
      * @return 
      */
-    public boolean save(String dataId,String karyawanId,String tgl,String jamPulang,String levelId,String statusId,String upahLembur,String keterangan){
-        Karyawan karyawan = (Karyawan) this.dodao.getById(Integer.parseInt(karyawanId));
-        Level level = (Level) this.dodao.getById(Integer.parseInt(levelId));
-        Status status = (Status) this.dodao.getById(Integer.parseInt(statusId));
-//        char[] temp_jpulang = jamPulang.toCharArray();
-//        int jam_plg = Integer.parseInt(temp_jpulang[0]+""+temp_jpulang[1]);
-//        int param = 17;
-//        double upah=0;
-//        if(jam_plg-param == 1){
-//            upah = (karyawan.getGaji()*1/173)*1.5;
-//        }else if(jam_plg-param == 2){
-//            upah = (karyawan.getGaji()*1/173)*1.5+(karyawan.getGaji()*1/173)*2;
-//        }else if(jam_plg-param >= 3){
-//            upah = (karyawan.getGaji()*1/173)*1.5+(karyawan.getGaji()*1/173)*2+(karyawan.getGaji()*1/173)*2;
-//        }
+//    public boolean save(String dataId,String karyawanId,String tgl,String jamPulang,String levelId,String statusId,String upahLembur,String keterangan){
+//        Karyawan karyawan = (Karyawan) this.dodao.getById(Integer.parseInt(karyawanId));
+//        Level level = (Level) this.dodao.getById(Integer.parseInt(levelId));
+//        Status status = (Status) this.dodao.getById(Integer.parseInt(statusId));
 //        
-        
-        return this.dodao.insert(new DataOvertime(Integer.parseInt(dataId),karyawan,tgl,jamPulang,level,status,Integer.parseInt(upahLembur),keterangan));
-                
-    }
+//        return this.dodao.insert(new DataOvertime(Integer.parseInt(dataId),karyawan,tgl,jamPulang,level,status,Integer.parseInt(upahLembur),keterangan));
+//                
+//    }
     
-    public boolean edit(String dataId,String karyawanId,String tgl,String jamPulang,String levelId,String statusId,String upahLembur,String keterangan){
-        Karyawan karyawan = (Karyawan) this.dodao.getById(Integer.parseInt(karyawanId));
-        Level level = (Level) this.dodao.getById(Integer.parseInt(levelId));
-        Status status = (Status) this.dodao.getById(Integer.parseInt(statusId));
-        return this.dodao.update(new DataOvertime(Integer.parseInt(dataId),karyawan,tgl,jamPulang,level,status,Integer.parseInt(upahLembur),keterangan));
-    }
+    /**
+     * Fungsi untuk menyimpan data Overtime
+     * @param dataId
+     * @param karyawanId
+     * @param tgl
+     * @param jamPulang
+     * @param levelId
+     * @param statusId
+     * @param upahLembur
+     * @param keterangan
+     * @return true/false
+     */
+//    public boolean edit(String dataId,String karyawanId,String tgl,String jamPulang,String levelId,String statusId,String upahLembur,String keterangan){
+//        Karyawan karyawan = (Karyawan) this.dodao.getById(Integer.parseInt(karyawanId));
+//        Level level = (Level) this.dodao.getById(Integer.parseInt(levelId));
+//        Status status = (Status) this.dodao.getById(Integer.parseInt(statusId));
+//        return this.dodao.update(new DataOvertime(Integer.parseInt(dataId),karyawan,tgl,jamPulang,level,status,Integer.parseInt(upahLembur),keterangan));
+//    }
     
+    /**
+     * Fungsi untuk menghapus row pada data overtime
+     * @param id
+     * @return true/false
+     */
     public boolean drop(int id){
         return this.dodao.delete(id);
     }
     
+    /**
+     * Fungsi untuk menampilkan seluruh data yang ada pada data overtime
+     * @return List
+     */
     public List<Object[]> binding(){
         return this.dodao.getAll();
     }
     
+    /**
+     * Fungsi ini menampilkan seluruh data tersortir pada data overtime
+     * @param category
+     * @param sort
+     * @return List
+     */
     public List<Object[]> bindingSort(String category,String sort){
         return this.dodao.getAllSort(category, sort);
     }
-    
+    /**
+     * Fungsi ini dibuat untuk melakukan pencarian pada data
+     * @param category
+     * @param data
+     * @return 
+     */
     public List<Object[]> find(String category, String data){
         return this.dodao.search(category, data);
     }
     
+    /**
+     * Fungsi untuk mencari id dari data \
+     * @param id
+     * @return Objek
+     */
     public Object findById(String id){
         return this.dodao.getById(Integer.parseInt(id));
     }
     
+    /**
+     * Fungsi untuk mendapatkan id max(id)+1 
+     * @return id
+     */
     public String getAutoId(){
         return this.dodao.getAutoId();
     }
